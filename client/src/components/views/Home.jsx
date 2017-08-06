@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { withProps } from 'recompose'
 import FlexContainer from '../../style/FlexContainer'
 import FlexItem from '../../style/FlexItem'
 import background from '../../media/home-background.jpg'
@@ -9,22 +8,19 @@ const Logo = styled.div`
     font-size: 48px;
 `
 
-const Container = withProps({direction: 'column'})(FlexContainer.extend`
+const Container = FlexContainer.extend`
     height: 100vh;
     width: 100vw;
     background: url(${background});
     padding: 60px;
     color: white;
-`)
+`
 
 const Box = FlexItem.extend`
     justify-content: center;
     align-items: center;
     padding: 20px 0;
 `
-
-const LeftBox = withProps({size: 1})(Box)
-const RightBox = withProps({size: 2})(Box)
 
 const Heading = styled.div`
     padding-top: 200px;
@@ -37,10 +33,10 @@ const Description = styled.p`
 `
 
 const Home = () =>
-    <Container>
+    <Container direction="column">
         <Logo>Listeo</Logo>
         <FlexContainer>
-            <LeftBox>
+            <Box size="1">
                 <Heading>Listeo is a platform for creating and sharing video playlists</Heading>
                 <Description>
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry.
@@ -49,9 +45,9 @@ const Home = () =>
                     It has survived not only five centuries, but also the leap into electronic typesetting,
                     remaining essentially unchanged. 
                 </Description>
-            </LeftBox>
-            <RightBox>
-            </RightBox>
+            </Box>
+            <Box size="2">
+            </Box>
         </FlexContainer>
     </Container>
 
