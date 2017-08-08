@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { withProps, wrapDisplayName, setDisplayName } from 'recompose'
 import { path, curry } from 'ramda'
 
-const createFormField = formName => field => actions => validationFn => ComposedComponent =>
+const createFormField = (formName, field, actions, validationFn, ComposedComponent) =>
     connect(store => ({
         form: store[formName],
         value: path([formName, 'values', field], store),
