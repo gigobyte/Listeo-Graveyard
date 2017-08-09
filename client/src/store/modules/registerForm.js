@@ -10,7 +10,7 @@ const DEFAULT_STATE = {
     serverErrors: {}
 }
 
-const m = createFormModule(DEFAULT_STATE, (state, action) => {
+const m = createFormModule(DEFAULT_STATE, (state) => {
     return state
 }, 'registerForm')
 

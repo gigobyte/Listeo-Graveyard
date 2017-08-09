@@ -18,9 +18,9 @@ const createFormModule = (defaultState, composedReducer, formName) => {
                     return assoc('clientErrors', payload, state)
                 case RESET:
                     return defaultState
-                default:
-                    return composedReducer(state, action)
             }
+
+             return composedReducer(state, action)
         },
         actions: { UPDATE_FIELD, UPDATE_ERROR, UPDATE_ERRORS, RESET },
         actionCreators: {

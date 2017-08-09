@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import FlexContainer from '../../style/FlexContainer'
-import FlexItem from '../../style/FlexItem'
 import RegisterForm from '../partials/RegisterForm'
 import background from '../../media/home-background.jpg'
 
@@ -41,25 +40,6 @@ const RightSide = FlexContainer.extend`
     padding-right: 30px;
 `
 
-// const Home = () =>
-//     <Container direction="column">
-//         <Logo>Listeo</Logo>
-//         <FlexContainer>
-//             <Box size="1">
-//                 <Heading>Listeo is a platform for creating and sharing video playlists</Heading>
-//                 <Description>
-//                     Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-//                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
-//                     took a galley of type and scrambled it to make a type specimen book.
-//                     It has survived not only five centuries, but also the leap into electronic typesetting,
-//                     remaining essentially unchanged. 
-//                 </Description>
-//             </Box>
-//             <Box size="2">
-//             </Box>
-//         </FlexContainer>
-//     </Container>
-
 const Home = () =>
     <Container>
         <Logo>Listeo</Logo>
@@ -70,7 +50,7 @@ const Home = () =>
                 </Heading>
                 <Description>
                      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
+                     Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer
                      took a galley of type and scrambled it to make a type specimen book.
                      It has survived not only five centuries, but also the leap into electronic typesetting,
                      remaining essentially unchanged. 
