@@ -3,7 +3,7 @@ import { validate, required, pattern, minlenght, includes } from './validationUt
 const validateRegisterForm = form => ({
     username: validate(form.username, [
         [required, 'Username is required'],
-        [pattern(/^.{6,}$/), 'Username should not contain special characters and must be at least 3 characters long']
+        [pattern(/^[a-zA-Z0-9]{3,}$/), 'Username should not contain special characters and must be at least 3 characters long']
     ]),
     password: validate(form.password, [
         [required, 'Password is required'],

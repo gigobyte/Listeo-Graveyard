@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import FlexContainer from '../../style/FlexContainer'
 import RegisterForm from '../partials/RegisterForm'
-import background from '../../media/home-background.jpg'
+import backgroundImage from '../../media/background.png';
 
 const Logo = styled.div`
     font-size: 48px;
@@ -10,7 +10,8 @@ const Logo = styled.div`
 
 const Container = FlexContainer.extend`
     flex-direction: column;
-    background: url(${background});
+    background: url(${backgroundImage});
+    background-size: cover;
     padding: 50px;
     color: white;
     height: 100%;
