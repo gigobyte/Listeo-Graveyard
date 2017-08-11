@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { T, F } from 'ramda'
 import { withState } from 'recompose'
+import Icon from './Icon'
 
 const Input = styled.input`
     padding: 0px;
@@ -43,6 +44,7 @@ const Placeholder = styled.div`
     color: rgba(256, 256, 256, 0.87);
     transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
     bottom: 12px;
+    ${props => props.placeholderStyle}
 `
 
 const BorderFocused = styled.div`
@@ -67,8 +69,25 @@ const Error = styled.div`
     transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
 `
 
-const InputField = ({type='text', value, onChange, onBlur=T, onFocus=T, placeholder, focused, setFocused, error }) =>
+const RightIcon = styled.span`
+    position: absolute;
+    top: 14px;
+    right: 10px;
+    font-size: 18px;
+`
+
+const LeftIcon = styled.span`
+    position: absolute;
+    left: -30px;
+    top: 13px;
+    font-size: 19px;
+    ${props => props.propStyle}
+`
+
+const InputField = ({type='text', value, onChange, onBlur=T, onFocus=T, placeholder, focused, setFocused, error, rightIcon, onRightIconClick, leftIcon, leftIconStyle}) =>
     <Wrapper>
+        <LeftIcon propStyle={leftIconStyle}><Icon icon={leftIcon} /></LeftIcon>
+        <Placeholder show={!value}>{placeholder}</Placeholder>
         <Input
             type={type}
             value={value}
@@ -76,8 +95,8 @@ const InputField = ({type='text', value, onChange, onBlur=T, onFocus=T, placehol
             onBlur={() => (onBlur(), setFocused(F))}
             onFocus={() => (onFocus(), setFocused(T))}
         />
+        {rightIcon && <RightIcon onClick={onRightIconClick}><Icon icon={rightIcon} /></RightIcon>}
         <div>
-            <Placeholder show={!value}>{placeholder}</Placeholder>
             <Border />
             <BorderFocused show={focused} hasError={error} />
             {error && <Error>{error}</Error>}
