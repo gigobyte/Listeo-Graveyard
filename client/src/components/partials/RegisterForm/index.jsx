@@ -1,9 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
+import { connect } from 'react-redux'
+import { any, values } from 'ramda'
 import Username from './Username'
 import Password from './Password'
 import Email from './Email'
 import Button from '../../shared/Button'
+import validateRegisterForm from '../../../utils/validateRegisterForm'
+import * as actions from '../../../store/modules/registerForm'
 import FlexContainer from '../../../style/FlexContainer'
 
 const Container = FlexContainer.extend`
@@ -37,7 +41,20 @@ const ForgotPassword = Field.extend`
     justify-content: flex-end;
 `
 
-const RegisterForm = () =>
+const mapStateToProps = store => ({
+    form: store.registerForm
+})
+
+const register = (dispatch, formValues) => () => {
+    const validation = validateRegisterForm(formValues)
+    if (any(Boolean, values(validation))) {
+        return dispatch(actions.updateErrors(validation))
+    }
+
+    return dispatch(actions.register(formValues))
+}
+
+const RegisterForm = ({ dispatch, form }) =>
     <Container>
         <Title>Join now!</Title>
         <FormContainer>
@@ -45,8 +62,10 @@ const RegisterForm = () =>
             <Field><Email /></Field>
             <Field><Password /></Field>
             <ForgotPassword>Forgot password?</ForgotPassword>
-            <SubmitButtonContainer><Button>Sign Up</Button></SubmitButtonContainer>
+            <SubmitButtonContainer>
+                <Button onClick={register(dispatch, form.values)}>Sign Up</Button>
+            </SubmitButtonContainer>
         </FormContainer>
     </Container>
 
-export default RegisterForm
+export default connect(mapStateToProps)(RegisterForm)

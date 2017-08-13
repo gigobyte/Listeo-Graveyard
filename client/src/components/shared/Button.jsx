@@ -16,7 +16,7 @@ const ButtonWithRadius = styled.button`
     }
 `
 
-const Button = ({onClick, children }) =>
+const Button = ({ onClick, children }) =>
     <ButtonWithRadius onClick={onClick}>
         {children}
     </ButtonWithRadius>

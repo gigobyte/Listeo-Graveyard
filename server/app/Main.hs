@@ -2,28 +2,34 @@
 
 module Main where
 
-import           Control.Monad.IO.Class
-import qualified Data.Text.Lazy         as T
 import           Database.MongoDB
-import           Web.Scotty
+import           Debug.Trace
 import           Network.Wai.Middleware.Cors
-import Debug.Trace
-import Text.JSON (decode)
+import           Routes.Register
+import           Web.Scotty
 
-data User = User { username :: String } deriving (Show, Read)
-
-getUsers :: Pipe -> IO [Document]
-getUsers pipe = access pipe master "listeodb" (find (select [] "users") >>= rest)
-
-server :: Pipe -> ScottyM()
+server :: Pipe -> ScottyM ()
 server pipe =
-    get "/" $ do
-        res <- liftIO $ getUsers pipe
-        json $ T.pack $ show res
+    post "/register" $ register pipe
+
+corsMiddleware = cors $ const (Just policy)
+
+policy :: CorsResourcePolicy
+policy =
+    CorsResourcePolicy
+        { corsOrigins = Nothing
+        , corsMethods = simpleMethods
+        , corsRequestHeaders = simpleHeaders
+        , corsExposedHeaders = Nothing
+        , corsMaxAge = Nothing
+        , corsVaryOrigin = False
+        , corsRequireOrigin = False
+        , corsIgnoreFailures = False
+        }
 
 main :: IO ()
 main = do
     pipe <- connect $ host "127.0.0.1"
     scotty 8081 $ do
-        middleware simpleCors
+        middleware corsMiddleware
         server pipe
