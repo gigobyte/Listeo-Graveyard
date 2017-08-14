@@ -1,12 +1,36 @@
+{-# LANGUAGE DeriveAnyClass #-}
+{-# LANGUAGE DeriveGeneric  #-}
+
 module Validation.RegisterValidation where
 
+import           Data.Aeson                 (ToJSON)
 import           Data.List
-import           Models.RegisterBody
-import           Validation.ErrorCodes
+import           GHC.Generics
+import qualified Models.RegisterBody        as RB
+import           Validation.ErrorCode
+import           Validation.ValidationUtils
 
-validate :: RegisterBody -> Maybe RegisterErrorCode
-validate body
-    | length (username body) < 3 = Just InvalidUsername
-    | length (password body) <= 6 = Just InvalidPassword
-    | isInfixOf (email body) "@" = Just InvalidEmail
-    | otherwise = Nothing
+instance ToJSON RegisterErrorCode
+data RegisterErrorCode = InvalidUsername
+                       | InvalidPassword
+                       | InvalidEmail
+                       | UserAlreadyExists
+                       deriving (Enum, ErrorCode, Generic)
+
+instance ToJSON ValidationResult
+data ValidationResult = ValidationResult { username :: [Int]
+                                         , password :: [Int]
+                                         , email    :: [Int]
+                                         } deriving (Generic)
+
+validateRegisterForm :: RB.RegisterBody -> ValidationResult
+validateRegisterForm body =
+    let
+        usernameErrors = validate (RB.username body) [(required, InvalidUsername)]
+        passwordErrors = validate (RB.password body) [(required, InvalidPassword)]
+        emailErrors = validate (RB.email body) [(required, InvalidEmail)]
+    in
+        ValidationResult { username = usernameErrors
+                         , password = passwordErrors
+                         , email = emailErrors
+                         }

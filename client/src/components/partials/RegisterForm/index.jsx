@@ -46,10 +46,11 @@ const mapStateToProps = store => ({
 })
 
 const register = (dispatch, formValues) => () => {
-    const validation = validateRegisterForm(formValues)
-    if (any(Boolean, values(validation))) {
-        return dispatch(actions.updateErrors(validation))
-    }
+    // const validation = validateRegisterForm(formValues)
+
+    // if (any(Boolean, values(validation))) {
+    //     return dispatch(actions.updateErrors(validation))
+    // }
 
     return dispatch(actions.register(formValues))
 }

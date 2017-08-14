@@ -15,6 +15,11 @@ executable start
   main-is:             Main.hs
   other-extensions:    OverloadedStrings
   ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  other-modules:       Models.RegisterBody
+                     , Routes.Register
+                     , Validation.ErrorCode
+                     , Validation.RegisterValidation
+                     , Validation.ValidationUtils
   build-depends:       base
                      , scotty
                      , aeson
