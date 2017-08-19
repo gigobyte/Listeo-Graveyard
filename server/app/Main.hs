@@ -2,11 +2,11 @@
 
 module Main where
 
-import           Database.MongoDB
-import           Debug.Trace
-import           Network.Wai.Middleware.Cors
-import           Routes.Register
-import           Web.Scotty
+import Database.MongoDB
+import Debug.Trace
+import Network.Wai.Middleware.Cors
+import Routes.Register
+import Web.Scotty
 
 server :: Pipe -> ScottyM ()
 server pipe =

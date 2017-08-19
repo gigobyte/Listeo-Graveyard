@@ -1,11 +1,11 @@
 module Routes.Register where
 
-import           Data.Aeson                    (decode)
-import           Database.MongoDB
-import           Models.RegisterBody
-import           Network.HTTP.Types.Status
-import           Validation.RegisterValidation
-import           Web.Scotty
+import Data.Aeson (decode)
+import Database.MongoDB
+import Models.RegisterBody
+import Network.HTTP.Types.Status
+import Validation.RegisterValidation
+import Web.Scotty
 
 register :: Pipe -> ActionM ()
 register pipe = do

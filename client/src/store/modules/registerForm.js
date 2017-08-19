@@ -1,7 +1,7 @@
 import createFormModule from '../../utils/createFormModule'
 import * as api from '../../utils/api'
-import { REJECTED } from '../../utils/apiStatus'
-import { assocPath } from 'ramda'
+import { FULFILLED } from '../../utils/apiStatus'
+import { assoc, toPairs, reduce } from 'ramda'
 
 export const REGISTER = 'registerForm/REGISTER'
 
@@ -16,17 +16,17 @@ const DEFAULT_STATE = {
 }
 
 const registerErrors = {
-    0: {field: 'username', message: 'Invalid username'},
-    1: {field: 'password', message: 'Invalid password'},
-    2: {field: 'email', message: 'Invalid email'},
-    3: {field: 'username', message: 'User already exists'}
+    0: 'Invalid username',
+    1: 'Invalid password',
+    2: 'Invalid email',
+    3: 'User already exists'
 }
 
 const m = createFormModule(DEFAULT_STATE, (state, action) => {
-    if (action.type === REJECTED(REGISTER)) {
-        const errorCode = action.payload.response.data.code
-        const error = registerErrors[errorCode]
-        return assocPath(['serverErrors', error.field], error.message, state)
+    if (action.type === FULFILLED(REGISTER)) {
+        const errors = reduce((res, [ field, code ]) => assoc(field, registerErrors[code], res), {}, toPairs(action.payload.data))
+
+        return assoc('serverErrors', errors, state)
     }
 
     return state

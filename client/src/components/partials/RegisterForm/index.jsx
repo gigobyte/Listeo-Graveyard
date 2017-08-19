@@ -41,16 +41,12 @@ const ForgotPassword = Field.extend`
     justify-content: flex-end;
 `
 
-const mapStateToProps = store => ({
-    form: store.registerForm
-})
-
 const register = (dispatch, formValues) => () => {
-    // const validation = validateRegisterForm(formValues)
+    const validation = validateRegisterForm(formValues)
 
-    // if (any(Boolean, values(validation))) {
-    //     return dispatch(actions.updateErrors(validation))
-    // }
+    if (any(Boolean, values(validation))) {
+        return dispatch(actions.updateErrors(validation))
+    }
 
     return dispatch(actions.register(formValues))
 }
@@ -69,4 +65,6 @@ const RegisterForm = ({ dispatch, form }) =>
         </FormContainer>
     </Container>
 
-export default connect(mapStateToProps)(RegisterForm)
+export default connect(store => ({
+    form: store.registerForm
+}))(RegisterForm)
