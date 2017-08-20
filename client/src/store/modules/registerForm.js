@@ -1,6 +1,6 @@
-import createFormModule from '../../utils/createFormModule'
-import * as api from '../../utils/api'
-import { FULFILLED } from '../../utils/apiStatus'
+import createFormModule from 'utils/createFormModule'
+import * as api from 'utils/api'
+import { FULFILLED } from 'utils/apiStatus'
 import { assoc, toPairs, reduce } from 'ramda'
 
 export const REGISTER = 'registerForm/REGISTER'

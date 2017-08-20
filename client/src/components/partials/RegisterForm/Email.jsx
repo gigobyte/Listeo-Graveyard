@@ -1,7 +1,7 @@
 import React from 'react'
 import { css } from 'styled-components'
-import InputField from '../../shared/InputField'
-import createRegisterFormField from './createRegisterFormField'
+import InputField from 'components/shared/InputField'
+import createRegisterFormField from 'components/partials/RegisterForm/createRegisterFormField'
 
 const iconStyle = css`
     left: -32px;

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { T, F } from 'ramda'
 import { withState } from 'recompose'
-import Icon from './Icon'
+import Icon from 'components/shared/Icon'
 
 const Input = styled.input`
     padding: 0px;

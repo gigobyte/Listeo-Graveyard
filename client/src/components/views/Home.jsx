@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import FlexContainer from '../../style/FlexContainer'
-import RegisterForm from '../partials/RegisterForm'
-import backgroundImage from '../../media/background.png';
+import FlexContainer from 'style/FlexContainer'
+import RegisterForm from 'components/partials/RegisterForm'
+import backgroundImage from 'media/background.png';
 
 const Logo = styled.div`
     font-size: 48px;

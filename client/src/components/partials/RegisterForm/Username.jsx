@@ -1,6 +1,6 @@
 import React from 'react'
-import InputField from '../../shared/InputField'
-import createRegisterFormField from './createRegisterFormField'
+import InputField from 'components/shared/InputField'
+import createRegisterFormField from 'components/partials/RegisterForm/createRegisterFormField'
 
 const Username = ({ value, error, updateField, validateField }) =>
     <InputField

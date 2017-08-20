@@ -1,7 +1,7 @@
 import React from 'react'
 import { withState } from 'recompose'
-import InputField from '../../shared/InputField'
-import createRegisterFormField from './createRegisterFormField'
+import InputField from 'components/shared/InputField'
+import createRegisterFormField from 'components/partials/RegisterForm/createRegisterFormField'
 
 const Password = ({ value, error, updateField, validateField, passwordRevealed, revealPassword }) =>
     <InputField

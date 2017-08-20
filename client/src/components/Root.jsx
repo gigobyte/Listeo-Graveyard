@@ -3,8 +3,8 @@ import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { injectGlobal } from 'styled-components';
-import MainLayout from './layouts/MainLayout'
-import store from '../store'
+import MainLayout from 'components/layouts/MainLayout'
+import store from 'store'
 
 injectGlobal`
     html, body, .render-target {
