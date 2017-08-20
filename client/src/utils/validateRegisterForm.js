@@ -1,4 +1,4 @@
-import { validate, required, pattern, minlenght, includes } from './validationUtils'
+import { validate, required, pattern, minlenght, includes } from 'utils/validationUtils'
 
 const validateRegisterForm = form => ({
     username: validate(form.username, [

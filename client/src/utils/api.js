@@ -5,4 +5,4 @@ const axios = axiosBase.create({
 })
 
 export const register = formValues =>
-    axios.post('register', formValues)
+    axios.post('auth/register', formValues)

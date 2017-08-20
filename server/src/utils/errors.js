@@ -1,0 +1,8 @@
+const ERRORS = {
+    VALIDATION_ERROR: 1000,
+    SERVER_ERROR: 1001,
+    USER_ALREADY_EXISTS: 1002,
+    USER_NOT_FOUND: 1003
+}
+
+export default ERRORS
