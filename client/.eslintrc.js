@@ -35,6 +35,7 @@ module.exports = {
         'react/no-render-return-value': 0,
         'fp/no-rest-parameters': 0,
         'fp/no-mutation': [0, {commonjs: true}],
-        'fp/no-unused-expression': 0
+        'fp/no-unused-expression': 0,
+        'fp/no-nil': 0
     }
 }

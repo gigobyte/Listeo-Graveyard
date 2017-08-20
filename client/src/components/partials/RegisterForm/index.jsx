@@ -8,6 +8,8 @@ import Email from 'components/partials/RegisterForm/Email'
 import Button from 'components/shared/Button'
 import validateRegisterForm from 'utils/validateRegisterForm'
 import * as actions from 'store/modules/registerForm'
+import * as loginActions from 'store/modules/loginForm'
+import * as stateActions from 'store/modules/state'
 import FlexContainer from 'style/FlexContainer'
 
 const Container = FlexContainer.extend`
@@ -48,7 +50,11 @@ const register = (dispatch, formValues) => () => {
         return dispatch(actions.updateErrors(validation))
     }
 
-    return dispatch(actions.register(formValues))
+    return dispatch(actions.register(formValues)).then(() => {
+        return dispatch(loginActions.login({key: formValues.username, password: formValues.password}))
+    }).then(() => {
+        return dispatch(stateActions.getCurrentUser())
+    })
 }
 
 const RegisterForm = ({ dispatch, form }) =>

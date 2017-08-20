@@ -1,7 +1,7 @@
 import User from '../../models/user'
 import ERRORS from '../../utils/errors'
 
-const register = (req, res, next) => {
+const register = (req, res) => {
     const user = new User(req.body)
     
     user.save()

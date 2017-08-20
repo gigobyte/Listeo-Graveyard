@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt-nodejs'
 import { JWT_SECRET } from '../../secrets'
 
-const login = async (req, res, next) => {
+const login = (req, res) => {
     const { key, password } = req.body
 
     User.findOne({$or: [{username: key}, {email: key}]})
