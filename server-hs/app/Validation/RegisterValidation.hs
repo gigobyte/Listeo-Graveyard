@@ -8,6 +8,7 @@ import Data.List
 import GHC.Generics
 import qualified Models.RegisterBody as RB
 import Validation.ValidationUtils
+import Data.Maybe (isJust)
 
 instance ToJSON RegisterErrorCode
 data RegisterErrorCode = InvalidUsername
@@ -33,3 +34,6 @@ validateRegisterForm body =
                          , password = passwordError
                          , email = emailError
                          }
+
+hasAnyErrors :: ValidationResult -> Bool
+hasAnyErrors res = isJust (username res) || isJust (password res) || isJust (email res) 

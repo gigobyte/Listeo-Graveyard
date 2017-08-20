@@ -12,5 +12,7 @@ register pipe = do
     b <- body
     let c = decode b :: Maybe RegisterBody
     case c of
-        Just val -> json $ validateRegisterForm val
+        Just val -> if hasAnyErrors $ validateRegisterForm val
+                    then status badRequest400
+                    else status ok200
         Nothing  -> status badRequest400
