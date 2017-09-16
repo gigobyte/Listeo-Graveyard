@@ -1,6 +1,5 @@
 /* eslint-disable fp/no-unused-expression */
 import React from 'react'
-import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { injectGlobal } from 'styled-components';
 import MainLayout from 'components/layouts/MainLayout'
@@ -16,9 +15,7 @@ injectGlobal`
 
 const Root = () =>
     <Provider store={store}>
-        <BrowserRouter>
-            <MainLayout />
-        </BrowserRouter>
+        <MainLayout />
     </Provider>
 
 export default Root

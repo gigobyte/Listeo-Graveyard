@@ -22,11 +22,12 @@ const registerErrors = {
     3: 'User already exists'
 }
 
-const m = createFormModule(DEFAULT_STATE, (state, action) => {
-    if (action.type === FULFILLED(REGISTER)) {
-        const errors = reduce((res, [ field, code ]) => assoc(field, registerErrors[code], res), {}, toPairs(action.payload.data))
+const getRegisterErrors = data => reduce((res, [ field, code ]) => assoc(field, registerErrors[code], res), {}, toPairs(data))
 
-        return assoc('serverErrors', errors, state)
+const m = createFormModule(DEFAULT_STATE, (state, action) => {
+    switch(action.type) {
+        case FULFILLED(REGISTER):
+            return assoc('serverErrors', getRegisterErrors(action.payload.data), state)
     }
 
     return state

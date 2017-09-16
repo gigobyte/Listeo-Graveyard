@@ -10,6 +10,7 @@ const ButtonWithRadius = styled.button`
     color: white;
     width: 100%;
     padding: 3px;
+    cursor: pointer;
 
     &:focus {
         outline: none;

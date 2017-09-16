@@ -20,7 +20,11 @@ module.exports = {
                     forceEnv: 'build',
                     cacheDirectory: true,
                     presets: [
-                        'es2017',
+                        ['env', {
+                            targets: {
+                                browsers: ['> 5%']
+                            }
+                        }],
                         'stage-0',
                         'react'
                     ]

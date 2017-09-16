@@ -7,7 +7,7 @@ export const GET_CURRENT_USER = 'state/GET_CURRENT_USER'
 
 const DEFAULT_STATE = {
     jwt: null,
-    user: {}
+    user: null
 }
 
 export default (state=DEFAULT_STATE, action) => {

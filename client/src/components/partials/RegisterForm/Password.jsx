@@ -3,6 +3,8 @@ import { withState } from 'recompose'
 import InputField from 'components/shared/InputField'
 import createRegisterFormField from 'components/partials/RegisterForm/createRegisterFormField'
 
+const attachRevealPassword = withState('passwordRevealed', 'revealPassword', false)
+
 const Password = ({ value, error, updateField, validateField, passwordRevealed, revealPassword }) =>
     <InputField
         type={passwordRevealed ? 'text' : 'password'}
@@ -16,4 +18,4 @@ const Password = ({ value, error, updateField, validateField, passwordRevealed, 
         onRightIconClick={() => revealPassword((x => !x))}
     />
 
-export default withState('passwordRevealed', 'revealPassword', false)(createRegisterFormField('password', Password))
+export default attachRevealPassword(createRegisterFormField('password', Password))

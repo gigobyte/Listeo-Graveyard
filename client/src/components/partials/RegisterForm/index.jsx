@@ -39,8 +39,19 @@ const SubmitButtonContainer = Field.extend`
     width: 20%;
 `
 
-const ForgotPassword = Field.extend`
-    justify-content: flex-end;
+const OtherActionsContainer = Field.extend`
+justify-content: space-between;
+`
+
+const SignIn = styled.div`
+    flex: 1;
+    cursor: pointer;
+`
+
+const ForgotPassword = styled.div`
+    flex: 1;
+    text-align: right;
+    cursor: pointer;
 `
 
 const register = (dispatch, formValues) => () => {
@@ -50,11 +61,11 @@ const register = (dispatch, formValues) => () => {
         return dispatch(actions.updateErrors(validation))
     }
 
-    return dispatch(actions.register(formValues)).then(() => {
-        return dispatch(loginActions.login({key: formValues.username, password: formValues.password}))
-    }).then(() => {
-        return dispatch(stateActions.getCurrentUser())
-    })
+    return dispatch(actions.register(formValues)).then(() =>
+        dispatch(loginActions.login({key: formValues.username, password: formValues.password}))
+    ).then(() => 
+        dispatch(stateActions.getCurrentUser())
+    )
 }
 
 const RegisterForm = ({ dispatch, form }) =>
@@ -64,7 +75,14 @@ const RegisterForm = ({ dispatch, form }) =>
             <Field><Username /></Field>
             <Field><Email /></Field>
             <Field><Password /></Field>
-            <ForgotPassword>Forgot password?</ForgotPassword>
+            <OtherActionsContainer>
+                <SignIn>
+                    Sign In
+                </SignIn>
+                <ForgotPassword>
+                    Forgot password?
+                </ForgotPassword>
+            </OtherActionsContainer>
             <SubmitButtonContainer>
                 <Button onClick={register(dispatch, form.values)}>Sign Up</Button>
             </SubmitButtonContainer>

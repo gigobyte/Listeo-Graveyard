@@ -84,7 +84,7 @@ const LeftIcon = styled.span`
     ${props => props.propStyle}
 `
 
-const InputField = ({type='text', value, onChange, onBlur=T, onFocus=T, placeholder, focused, setFocused, error, rightIcon, onRightIconClick, leftIcon, leftIconStyle}) =>
+const InputField = ({ type='text', value, onChange, onBlur=T, onFocus=T, placeholder, focused, setFocused, error, rightIcon, onRightIconClick, leftIcon, leftIconStyle }) =>
     <Wrapper>
         <LeftIcon propStyle={leftIconStyle}><Icon icon={leftIcon} /></LeftIcon>
         <Placeholder show={!value}>{placeholder}</Placeholder>
