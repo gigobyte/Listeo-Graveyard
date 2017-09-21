@@ -1,36 +1,9 @@
 module Main exposing (..)
 
 import Html exposing (..)
-
-
-type alias Model =
-    String
-
-
-init : ( Model, Cmd Msg )
-init =
-    ( "Hello", Cmd.none )
-
-
-type Msg
-    = NoOp
-
-
-view : Model -> Html Msg
-view model =
-    div [] [ text model ]
-
-
-update : Msg -> Model -> ( Model, Cmd Msg )
-update msg model =
-    case msg of
-        NoOp ->
-            ( model, Cmd.none )
-
-
-subscriptions : Model -> Sub Msg
-subscriptions model =
-    Sub.none
+import App.Types exposing (Model, Msg)
+import App.View exposing (view)
+import App.State exposing (init, update, subscriptions)
 
 
 main : Program Never Model Msg
