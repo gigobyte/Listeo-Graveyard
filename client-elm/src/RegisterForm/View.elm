@@ -4,6 +4,7 @@ import App.Types exposing (Model, Msg)
 import Common.Button exposing (..)
 import Html exposing (Html, button, div, text)
 import Html.Attributes exposing (..)
+import RegisterForm.Username exposing (..)
 import Utils.StyledComponent exposing (..)
 
 
@@ -105,7 +106,8 @@ view model =
     container
         [ title [ text "Join now!" ]
         , formContainer
-            [ otherActionsContainer
+            [ field [ RegisterForm.Username.view model ]
+            , otherActionsContainer
                 [ signIn [ text "Sign In" ]
                 , forgotPassword [ text " Forgot password?" ]
                 ]
