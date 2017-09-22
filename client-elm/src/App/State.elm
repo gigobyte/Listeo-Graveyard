@@ -5,9 +5,23 @@ import App.Types exposing (Model, Msg)
 import RemoteData exposing (..)
 
 
+defaultRegisterFormValues : App.Types.RegisterForm
+defaultRegisterFormValues =
+    { username = ""
+    , password = ""
+    , email = ""
+    }
+
+
 init : ( Model, Cmd Msg )
 init =
-    ( { user = RemoteData.Loading }
+    ( { user = RemoteData.Loading
+      , registerForm =
+            { values = defaultRegisterFormValues
+            , clientErrors = defaultRegisterFormValues
+            , serverErrors = defaultRegisterFormValues
+            }
+      }
     , fetchUser
     )
 

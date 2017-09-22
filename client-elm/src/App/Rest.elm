@@ -15,7 +15,7 @@ root =
 
 fetchUser : Cmd Msg
 fetchUser =
-    Http.get (root "/auth/me") userDecoder
+    Http.get (root "auth/me") userDecoder
         |> RemoteData.sendRequest
         |> Cmd.map App.Types.FetchUser
 

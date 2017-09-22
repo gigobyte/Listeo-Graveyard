@@ -3,6 +3,7 @@ module LandingPage.View exposing (..)
 import App.Types exposing (Model, Msg)
 import Html exposing (Html, div, text)
 import Html.Attributes exposing (..)
+import RegisterForm.View exposing (..)
 import Utils.StyledComponent exposing (..)
 
 
@@ -95,6 +96,8 @@ view model =
                     [ text "Lorem Ipsum is simply dummy text of the printing and typesetting industry.\n                        Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer\n                        took a galley of type and scrambled it to make a type specimen book.\n                        It has survived not only five centuries, but also the leap into electronic typesetting,\n                        remaining essentially unchanged."
                     ]
                 ]
-            , rightSide []
+            , rightSide
+                [ RegisterForm.View.view model
+                ]
             ]
         ]

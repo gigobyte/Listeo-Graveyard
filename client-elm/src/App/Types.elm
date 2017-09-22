@@ -8,6 +8,18 @@ type Msg
     = FetchUser (WebData User)
 
 
+type alias RegisterForm =
+    { username : String
+    , password : String
+    , email : String
+    }
+
+
 type alias Model =
     { user : WebData User
+    , registerForm :
+        { values : RegisterForm
+        , clientErrors : RegisterForm
+        , serverErrors : RegisterForm
+        }
     }
