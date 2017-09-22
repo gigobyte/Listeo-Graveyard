@@ -21,9 +21,21 @@ module.exports = {
                             verbose: true,
                             warn: true
                         }
+                    },
+                ]
+            },
+            {
+                test: /\.(jpe?g|png|gif|svg|ttf|woff2?|eot)(\?.+)?$/i,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            publicPath:  path.resolve(__dirname, '..', 'dist'),
+                            name: '[name].[ext]'
+                        }
                     }
                 ]
-            }
+            },
         ],
         noParse: /\.elm$/
     },
