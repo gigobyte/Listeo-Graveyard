@@ -1,4 +1,4 @@
-module Styles.FlexContainer exposing (flexContainer)
+module Styles.Flex exposing (flexContainer, flexContainerColumn)
 
 import Css exposing (..)
 import Html exposing (div)
@@ -9,4 +9,11 @@ flexContainer : StyledComponent
 flexContainer =
     styled div
         [ displayFlex
+        ]
+
+
+flexContainerColumn : StyledComponent
+flexContainerColumn =
+    styled flexContainer
+        [ flexDirection column
         ]

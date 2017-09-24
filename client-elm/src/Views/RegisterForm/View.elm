@@ -4,24 +4,22 @@ import App.State.Msgs exposing (Msg)
 import App.State.Root exposing (Model)
 import Css exposing (..)
 import Html exposing (Html, div)
-import Styles.FlexContainer exposing (flexContainer)
+import Styles.Flex exposing (flexContainer, flexContainerColumn)
 import Utils.Styled exposing (StyledComponent, styled)
 import Views.Shared.Button as Button exposing (view)
 
 
 container : StyledComponent
 container =
-    styled flexContainer
-        [ flexDirection column
-        , width (pct 100)
+    styled flexContainerColumn
+        [ width (pct 100)
         ]
 
 
 formContainer : StyledComponent
 formContainer =
-    styled flexContainer
-        [ flexDirection column
-        , justifyContent center
+    styled flexContainerColumn
+        [ justifyContent center
         ]
 
 

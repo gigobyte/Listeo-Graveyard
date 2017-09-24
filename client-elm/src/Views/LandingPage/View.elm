@@ -4,7 +4,7 @@ import App.State.Msgs exposing (Msg)
 import App.State.Root exposing (Model)
 import Css exposing (..)
 import Html exposing (Html, div)
-import Styles.FlexContainer exposing (flexContainer)
+import Styles.Flex exposing (flexContainer, flexContainerColumn)
 import Utils.Styled exposing (StyledComponent, styled)
 import Views.RegisterForm.View as RegisterForm exposing (view)
 
@@ -18,9 +18,8 @@ logo =
 
 container : StyledComponent
 container =
-    styled flexContainer
-        [ flexDirection column
-        , backgroundImage (url "/background.png")
+    styled flexContainerColumn
+        [ backgroundImage (url "/background.png")
         , backgroundSize cover
         , padding (px 50)
         , color (hex "fff")
@@ -38,9 +37,8 @@ content =
 
 leftSide : StyledComponent
 leftSide =
-    styled flexContainer
+    styled flexContainerColumn
         [ flex (int 1)
-        , flexDirection column
         , paddingTop (px 100)
         ]
 
