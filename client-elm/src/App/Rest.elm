@@ -1,6 +1,6 @@
-module App.Rest exposing (..)
+module App.Rest exposing (fetchUser)
 
-import App.Types exposing (Msg)
+import App.State.Msgs exposing (Msg(FetchUser))
 import Http
 import Json.Decode as Decode
 import Json.Decode.Pipeline exposing (decode, required)
@@ -17,7 +17,7 @@ fetchUser : Cmd Msg
 fetchUser =
     Http.get (root "auth/me") userDecoder
         |> RemoteData.sendRequest
-        |> Cmd.map App.Types.FetchUser
+        |> Cmd.map FetchUser
 
 
 userDecoder : Decode.Decoder User

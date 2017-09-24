@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --port 8000"
+    "start": "webpack-dev-server --port 8080"
   },
   "dependencies": {
     "elm-webpack-loader": "^4.3.1",

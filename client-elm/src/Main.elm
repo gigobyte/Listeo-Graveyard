@@ -1,9 +1,9 @@
-module Main exposing (..)
+module Main exposing (main)
 
+import App.State.Msgs exposing (Msg)
+import App.State.Root exposing (Model, init, subscriptions, update)
 import Html exposing (..)
-import App.Types exposing (Model, Msg)
-import App.View exposing (view)
-import App.State exposing (init, update, subscriptions)
+import Views.Root exposing (view)
 
 
 main : Program Never Model Msg
