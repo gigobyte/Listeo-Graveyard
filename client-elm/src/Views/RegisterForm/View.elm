@@ -4,7 +4,7 @@ import App.State.Msgs exposing (Msg)
 import App.State.Root exposing (Model)
 import Css exposing (..)
 import Html exposing (Html, div)
-import Styles.Flex exposing (flexContainer, flexContainerColumn)
+import Styles.Flex exposing (flexContainer, flexContainerColumn, flexItem)
 import Utils.Styled exposing (StyledComponent, styled)
 import Views.Shared.Button as Button exposing (view)
 
@@ -58,9 +58,8 @@ otherActionsContainer =
 
 signIn : StyledComponent
 signIn =
-    styled div
-        [ flex (int 1)
-        , cursor pointer
+    styled (flexItem 1)
+        [ cursor pointer
         ]
 
 
