@@ -2,7 +2,7 @@ module Main exposing (main)
 
 import App.State.Msgs exposing (Msg)
 import App.State.Root exposing (Model, init, subscriptions, update)
-import Html exposing (..)
+import Html exposing (program)
 import Views.Root exposing (view)
 
 

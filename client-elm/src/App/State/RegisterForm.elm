@@ -1,4 +1,4 @@
-module App.State.RegisterForm exposing (RegisterFormModel, initRegisterForm)
+module App.State.RegisterForm exposing (RegisterFormFieldValues, RegisterFormModel, initRegisterForm)
 
 
 type alias RegisterFormFieldValues =

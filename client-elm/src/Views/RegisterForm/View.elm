@@ -6,6 +6,7 @@ import Css exposing (..)
 import Html exposing (Html, div)
 import Styles.Flex exposing (flexContainer, flexContainerColumn, flexItem)
 import Utils.Styled exposing (StyledComponent, styled)
+import Views.RegisterForm.Fields as Fields exposing (username)
 import Views.Shared.Button as Button exposing (view)
 
 
@@ -76,7 +77,9 @@ view : Model -> Html Msg
 view model =
     container []
         [ title [] [ Html.text "Join now!" ]
-        , formContainer [] []
+        , formContainer []
+            [ field [] [ Fields.username model ]
+            ]
         , otherActionsContainer []
             [ signIn [] [ Html.text "Sign In" ]
             , forgotPassword [] [ Html.text "Forgot password?" ]

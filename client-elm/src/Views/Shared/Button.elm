@@ -1,14 +1,14 @@
 module Views.Shared.Button exposing (view)
 
--- import Html.Attributes exposing (..)
-
+import App.State.Msgs exposing (Msg)
 import Css exposing (..)
 import Html exposing (Html, button)
+import Html.Attributes exposing (class)
 import Utils.Styled exposing (StyledComponent, styled)
 
 
-view : StyledComponent
-view =
+button_ : StyledComponent
+button_ =
     styled button
         [ boxSizing contentBox
         , borderRadius (px 15)
@@ -20,3 +20,8 @@ view =
         , padding (px 3)
         , cursor pointer
         ]
+
+
+view : List (Html.Attribute Msg) -> List (Html Msg) -> Html Msg
+view props =
+    button_ (props ++ [ Html.Attributes.class "btn" ])
