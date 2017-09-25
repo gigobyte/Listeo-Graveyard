@@ -12,6 +12,8 @@ input_ =
     styled input
         [ padding zero
         , position relative
+        , Css.border zero
+        , outline none
         , width (pct 100)
         , backgroundColor (rgba 0 0 0 0)
         , color (rgba 256 256 256 0.87)
