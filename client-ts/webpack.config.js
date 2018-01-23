@@ -61,7 +61,7 @@ module.exports = {
             path.resolve(__dirname, 'src'),
             path.resolve(__dirname, 'node_modules')
         ],
-        extensions: ['.js', '.jsx']
+        extensions: ['.js', '.ts', '.tsx']
     },
     plugins: [
         new webpack.NamedModulesPlugin(),
