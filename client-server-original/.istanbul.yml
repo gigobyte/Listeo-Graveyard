@@ -1,0 +1,4 @@
+instrumentation:
+    root: client-src
+    extensions: ['.js', '.jsx']
+    include-all-sources: true

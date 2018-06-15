@@ -1,0 +1,46 @@
+@import './colors';
+
+.colNoPadding {
+    padding: 0
+}
+
+.errorText {
+    text-align: center;
+    color: $red-100;
+    padding-top: 100px;
+}
+
+.formRowPadding {
+    padding-top: 20px;
+}
+
+.inputIcon {
+    font-size: 22px;
+    padding-top: 12px;
+    padding-left: 10px;
+}
+
+.textFieldFull {
+    width: 100% !important;
+}
+
+.verticallyCentered {
+    top: 35px;
+    transform: translate(0, -50%);
+}
+
+.primaryButton {
+    button {
+        background-color: $blue-100 !important;
+    }
+}
+
+.fixedHeightRow70 {
+    height: 70px;
+}
+
+.fullPage {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}

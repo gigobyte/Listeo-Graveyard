@@ -1,0 +1,42 @@
+@import '../colors';
+
+.thumbnailContainer {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.thumbnailImage {
+    width: 400px;
+    height: 208px;
+    margin: 0 auto;
+    background: url('~/images/default-playlist-thumbnail.png');
+    background-size: cover;
+}
+
+.thumbnailImageOverlay {
+    opacity: 0;
+    background:rgba(0,0,0,.75);
+    text-align:center;
+    transition: opacity .25s ease;
+    height: 100%;
+
+    &:hover {
+        opacity: 1;
+        cursor: pointer;
+    }
+}
+
+.overlayContent {
+    color: white;
+    height: 100%;
+    text-align: center;
+
+    i {
+        font-size: 40px;
+        padding-top: 60px;
+    }
+
+    p {
+        font-size: 30px;
+    }
+}

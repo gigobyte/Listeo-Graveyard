@@ -1,0 +1,6 @@
+--compilers js:babel-core/register
+--recursive
+-r mock-local-storage
+-r jsdom-global/register
+-r ignore-styles
+tests/**/*.js*

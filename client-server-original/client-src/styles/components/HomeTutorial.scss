@@ -1,0 +1,13 @@
+@import '../colors';
+
+.container {
+    margin-top: 50px;
+    background-color: white;
+    border: 1px solid $gray-200;
+    border-radius: 1%;
+}
+
+.heading {
+    text-align: center;
+    font-size: 30px;
+}

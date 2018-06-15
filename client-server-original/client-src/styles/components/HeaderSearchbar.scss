@@ -1,0 +1,20 @@
+@import '../colors';
+
+.searchIcon {
+    color: $gray-300;
+}
+
+.searchBox {
+    border: none;
+    outline: none;
+    padding-bottom: 0;
+    padding-left: 1rem;
+    padding-top: 0.5rem;
+    width: 96%;
+}
+
+.headerPart {
+    padding: .5rem 1rem;
+    border-right: 1px solid $gray-200;
+    height: 56px;
+}

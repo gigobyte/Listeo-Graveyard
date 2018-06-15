@@ -1,0 +1,22 @@
+@import '../colors';
+
+.profilePicture {
+    border-radius: 1.5rem;
+    padding-top: 4px;
+    margin-right: 25px;
+}
+
+.menuItem {
+    text-align: center;
+    padding: 4px;
+    font-size: 16px;
+}
+
+:global .app-popover {
+    border-radius: 2px;
+    border-color: $gray-300;
+
+    .popover-title {
+        background-color: $gray-100;
+    }
+}

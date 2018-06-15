@@ -1,0 +1,19 @@
+@import '../colors';
+
+.container {
+    background-color: white;
+    border-bottom: 1px solid $gray-200;
+    padding: 0;
+    height: 56px;
+}
+
+.brand {
+    font-size: 1.6rem !important;
+    padding-left: 40px !important;
+}
+
+.headerPart {
+    padding: .5rem 1rem;
+    border-right: 1px solid $gray-200;
+    height: 56px;
+}
